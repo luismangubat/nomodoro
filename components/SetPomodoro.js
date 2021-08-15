@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { SettingContext } from '../context/SettingContext';
 import Button from './Button';
 
 const SetPomodoro = () => {
 
+  const [updateExecute] = useContext(SettingContext)
   const [newTimer, setNewTimer] = useState({
     work: 0.3,
     short: 0.2,
@@ -36,7 +38,10 @@ const SetPomodoro = () => {
     console.log('newTimer: ', newTimer)
   };
 
-  const handleSubmit = () => {}
+  const handleSubmit = () => {
+    e.preventDefault();
+    updateExtue(newTimer)
+  }
   return (
     <div className="forn-container">
       <form noValidate>
