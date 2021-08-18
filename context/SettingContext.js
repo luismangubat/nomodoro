@@ -9,13 +9,7 @@ const SettingContextProvider = (props) => {
   const [startAnimate, setStartAnimate] = useState(false);
   
 
-  function setCurrentTimer(active_state) {
-    updateExecture({
-      ...executing,
-      active: active_state
-    })
-    setTimerTimer(executing)
-  }
+
   function startTimer() {
     setStartAnimate(true)
   }
@@ -32,6 +26,14 @@ const SettingContextProvider = (props) => {
   const SettingBtn = () => {
     setExecuting({})
     setPomodoro(0)
+  }
+
+  function setCurrentTimer(active_state) {
+    updateExecture({
+      ...executing,
+      active: active_state
+    })
+    setTimerTimer(executing)
   }
 
   const updateExecute = (updatedSettings) => {
@@ -56,8 +58,26 @@ const SettingContextProvider = (props) => {
 
     }
   }
+
+  const children = ({remainingTimer}) => {
+    const minutes = Math.floor(remainingTimer / 60 )
+    const seconds = remainingTimer * 60
+    return `${minutes}:${seconds}`
+  }
   return (
-    <SettingContext.Provider value ={{stopTimer, updateExecute}}>
+    <SettingContext.Provider 
+    value ={{
+      stopTimer, 
+      updateExecute,
+      pomodoro,
+      executing,
+      startAnimate,
+      startTimer,
+      pausTimer,
+      SettingBtn,
+      setCurrentTimer,
+      updateExecute,
+      children}}>
       {props.children}
     </SettingContext.Provider>
   )
