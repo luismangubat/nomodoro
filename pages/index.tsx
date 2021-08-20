@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import SetPomodoro from '../components/SetPomodoro'
-
-import styles from '../styles/Home.module.css'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import Button from '../components/Button'
 import CountdownAnimaiton from '../components/CountdownAnimaiton'
 import { SettingsContext } from '../context/SettingContext';
