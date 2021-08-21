@@ -1,12 +1,26 @@
-  import { useState, createContext } from "react";
+import { useState, createContext } from "react";
 
-export const SettingsContext = createContext()
+
+const defaultState = {
+    pomodoro: 0, 
+    executing: {},
+    updateExecute: {}, 
+    startAnimate: 0, 
+    startTimer: 0,
+    pauseTimer: 0,
+    children: 0,
+    SettingsBtn: {},
+    setCurrentTimer: 0,
+    stopAimate: Boolean
+
+  }
+export const SettingsContext = createContext(defaultState);
 
 function SettingsContextProvider(props) {
 
-    const [pomodoro, setPomodoro] = useState(0)
-    const [executing, setExecuting] = useState({})
-    const [startAnimate, setStartAnimate] = useState(false)
+    const [pomodoro, setPomodoro] = useState(0);
+    const [executing, setExecuting] = useState({});
+    const [startAnimate, setStartAnimate] = useState(false);
 
     function setCurrentTimer (active_state) {
         updateExecute({
@@ -83,4 +97,4 @@ function SettingsContextProvider(props) {
 
 }
 
-export default SettingsContextProvider;
+export default SettingsContextProvider

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import { SettingContext } from '../context/SettingContext'
+import { SettingsContext } from '../context/SettingContext'
 
 const CountdownAnimaiton = (key = 1, timer = 20, animate = true, children) => {
-  const { stopTimer } = useContext(SettingContext);
+  const { stopAnimate  } = useContext(SettingsContext);
   
   return (
     <div>
@@ -15,7 +15,7 @@ const CountdownAnimaiton = (key = 1, timer = 20, animate = true, children) => {
         strokeWidth={6}
         trailColor="#151932"
         onComplete={() => {
-          stopTimer()
+          stopAnimate()
         }}
         >
         {children}
